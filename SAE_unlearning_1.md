@@ -1,7 +1,8 @@
 ---
 tags:
-  - applications
-  - polymetis
+permalink: /unlearning1
+layout: page
+title: "Sparse Autoencoders for Improving Unlearning in Large Language Models" 
 ---
 # Sparse Autoencoders for Improving Unlearning in Large Language Models 
 ## A.K.A: Smallish Large-Language Models: What Do They Know? Can They Un-Know Things?? Let’s Find Out. 
@@ -15,7 +16,7 @@ tags:
     
 - I am uncertain about the practicality of the approach. 
     
-- My implementation of SAE unlearning burdened the model with a significant capability hit on predicting-the-next-token tasks. Moreover, the unlearned model also show decreased fluency and comphrensibility for prompt completion tasks. These capability decreases may discourage stakeholders from adopting this method. 
+- My implementation of SAE unlearning burdened the model with a significant capability hit on predicting-the-next-token tasks. Moreover, the unlearned model also show decreased fluency and comprehensibility for prompt completion tasks. These capability decreases may discourage stakeholders from adopting this method. 
     
 - However, I strongly suspect that this can be mitigated. My approach was rough, as I was pretty focused on MVP, can-I-get-this-to-work style of experiments. I could imagine generating a more subtle technique with about one or two days of additional work. 
     
