@@ -1,5 +1,6 @@
 ---
 tags:
+theme: jekyll-theme-minimal
 permalink: /unlearning1
 layout: page
 title: "Sparse Autoencoders for Improving Unlearning in Large Language Models" 
@@ -338,8 +339,6 @@ I owe a debt of gratitude to the following resources and others. 
     
 - [https://colab.research.google.com/github/neelnanda-io/TransformerLens/blob/main/demos/Exploratory_Analysis_Demo.ipynb](https://colab.research.google.com/github/neelnanda-io/TransformerLens/blob/main/demos/Exploratory_Analysis_Demo.ipynb)
     
-
-# 
 
 ---
 # Appendix 
