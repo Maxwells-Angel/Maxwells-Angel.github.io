@@ -1,5 +1,8 @@
 ---
-tags:
+tags: 
+- AI
+- coding
+- coding/projects
 theme: jekyll-theme-minimal
 permalink: /unlearning1
 title: "Sparse Autoencoders for Improving Unlearning in Large Language Models" 
