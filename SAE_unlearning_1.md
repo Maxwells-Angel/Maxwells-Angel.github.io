@@ -2,7 +2,6 @@
 tags:
 theme: jekyll-theme-minimal
 permalink: /unlearning1
-layout: page
 title: "Sparse Autoencoders for Improving Unlearning in Large Language Models" 
 ---
 # Sparse Autoencoders for Improving Unlearning in Large Language Models 
