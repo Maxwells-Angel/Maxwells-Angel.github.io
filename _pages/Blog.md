@@ -1,6 +1,6 @@
 ---
 permalink: /posts/
-layout: archive 
+layout: page
 ---
 
 # Example text
