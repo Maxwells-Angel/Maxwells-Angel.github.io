@@ -8,7 +8,7 @@ title: "Hello, my name is Kelechi Nwankwoala"
 
 I'm a former cognitive market-researcher turned AI researcher/engineer. 
 
-I’m currently finishing up my batch at the Recurse Center, a self-directed coding retreat, 
+I’m currently finishing up my batch at the [Recurse Center](https://www.recurse.com/), a self-directed coding retreat, 
 where I’ve been focusing on deep learning and mechanistic interpretability.
 
 Outside of programming, I am a bit of a hobby maximalist. I am a fan of almost anything competitive and adrenaline-inducing, (running, cycling, jiu-jitsu, surfing, skiing), arts and crafts related (sewing, drawing, embroidery, writing), and traditionally nerdy or geeky (DnD, chess, boardgames, bird-watching). Generally, if it’s novel, weird, strange, and/or cool, I am a fan. 
