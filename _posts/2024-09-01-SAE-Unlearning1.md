@@ -3,12 +3,11 @@ tags:
 - AI
 - coding
 - coding/projects
-theme: jekyll-theme-minimal
 permalink: /unlearning1
 title: "Sparse Autoencoders for Improving Unlearning in Large Language Models" 
+layout: single
 ---
-# Sparse Autoencoders for Improving Unlearning in Large Language Models 
-## A.K.A: Smallish Large-Language Models: What Do They Know? Can They Un-Know Things?? Let’s Find Out. 
+*A.K.A: Smallish Large-Language Models: What Do They Know? Can They Un-Know Things?? Let’s Find Out.* 
 
 [Colab Notebook](https://colab.research.google.com/drive/1U-qSau6D5yqEhnf8kjBy5DtugULPATFA?usp=sharing) 
 # Key Takeaways
