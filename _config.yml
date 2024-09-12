@@ -19,7 +19,7 @@ minimal_mistakes_skin    : "contrast" # #"default" "air", "aqua", "contrast", "d
 locale                   : "en-US"
 rtl                      : # true, false (default) # turns direction of the page into right to left for RTL languages
 title_separator          : "-"
-subtitle                 : # site tagline that appears below site title in masthead
+subtitle                 : "Ars, Humilitas, Ubertas, et Efficiens" # site tagline that appears below site title in masthead
 name                     : "Kelechi Nwankwoala"
 description: >- # this means to ignore newlines until "baseurl:"
   Projects & musings of Kelechi Nwankwoala "
