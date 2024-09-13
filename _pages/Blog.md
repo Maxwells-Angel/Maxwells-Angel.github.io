@@ -1,6 +1,8 @@
 ---
+title: Blog
+layout: collection
+collection: posts
 permalink: /posts/
-layout: page
+entries_layout: single
+classes: wide
 ---
-
-# Under Construction! 

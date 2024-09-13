@@ -1,6 +1,9 @@
 ---
+title: Portfolio
+layout: collection
 permalink: /portfolio/
-layout: post
+collection: portfolio
+entries_layout: grid
+classes: wide
 ---
-
 # Under Construction! 
