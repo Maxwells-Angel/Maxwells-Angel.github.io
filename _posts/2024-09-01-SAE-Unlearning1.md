@@ -278,10 +278,7 @@ I was shocked to see that the Unlearn model had the exact same accuracy as the S
 
   
 
-What happened here? The questions may have simply been too difficult for the model. Claude often composed questions with two plausible Harry Potter-related answers, rather than one unambigously relevant Harry Potter answer and one clear wrong answer. That’s good for human trivia, but it might be too tough for Gemma, considering the base model’s capabilities. In my initial exploration, I saw that even the baseline model had trouble correctly completing facts about Harry Potter occasionally. Lowering the difficulty may make it easier to parse gradations of knowledge decay. 
-
-  
-A simpler tasks like “choose the term related to Harry Potter A.{term} B.{term}” might give us the data we want while being easier for the model to handle.
+What happened here? The questions may have simply been too difficult for the model. Claude often composed questions with two plausible Harry Potter-related answers, rather than one unambigously relevant Harry Potter answer and one clear wrong answer. That’s good for human trivia, but it might be too tough for Gemma, considering the base model’s capabilities. In my initial exploration, I saw that even the baseline model ocassionally had trouble correctly completing facts about Harry Potter. A simpler task like “choose the term related to Harry Potter A.{term} B.{term}” might give us the data we want while being easier for the model to handle.
 
 # Discussion 
 
@@ -297,7 +294,7 @@ I would also like to spend more time familiarizing myself with memory editing pr
 
 ## Ablation Method Comparisons
 
-Since I don’t yet have a principled approach to choosing which features to ablate, I would love to do a head to head comparison of ablations to find out which ablations produce the best and most complete unlearning. 
+Since I don’t yet have a principled approach to choosing which features to ablate, I would love to do a head to head comparison of ablations to find out which ablations produce the most potent and complete unlearning. 
 
   
 
@@ -305,7 +302,7 @@ I note, for example, that my current two feature ablation did not completely scr
 
   
 
-I’m also curious to see how this method generalizes to other--perhaps more fundamental--topics. The target knowledge set—facts about Harry Potter—seems particularly specialized and unentangled with other facts about the world. Intuitively, it feels this kind of information from a model is easier to remove than say, knowledge about the existence of Africa or knowledge about the Roman empire. Concepts like that have a tremendous amount of related concepts and subconcepts, which might make it significantly harder to isolate the correct features. To sufficiently delete Africa, you may have to gather all the features that activate for Africa, but also all the features of each country on the continent, and then all the world leaders for each country. It feels like a lot of nodes to cover, and I’m not confident that a few “Africa” neurons will encompass it. Because of this and similar concerns, I feel that strong mechanistic interpretability groundwork will go a long way to making this approach effective and usable in real-life situations. 
+I’m also curious to see how this method generalizes to other—perhaps more fundamental—topics. The target knowledge set—facts about Harry Potter—seems particularly specialized and unentangled with other facts about the world. Intuitively, it feels this kind of information from a model is easier to remove than say, knowledge about the existence of Africa or knowledge about the Roman empire. Concepts like that have a tremendous amount of related concepts and subconcepts, which might make it significantly harder to isolate the correct features. To sufficiently delete Africa, you may have to gather all the features that activate for Africa, but also all the features of each country on the continent, and then all the world leaders for each country. It feels like a lot of nodes to cover, and I’m not confident that a few “Africa” neurons will encompass it. Because of this and similar concerns, I feel that strong mechanistic interpretability groundwork will go a long way to making this approach effective and usable in real-life situations. 
 
 ## Subtler Ablations 
 
@@ -313,7 +310,7 @@ I noted that SAE reconstruction came with a significant performance hit. It is s
 
   
 
-My thinking is that we can isolate the change we’re making to the model’s internal representation by comparing the the reconstructed activations to the reconstructed with ablation activations. The difference should be zero everywhere except where the ablation has been applied. You can then apply that difference tensor to the original activations to get a much more specific adjustment.
+My thinking is that we can isolate the change we’re making to the model’s internal representation by comparing the the reconstructed activations to the reconstructed with ablation activations. The differenc between the two should be zero everywhere except where the ablation has been applied. You can then apply that difference tensor to the original activations to get a much more specific adjustment.
 
 ## Different Robustness Tests 
 
