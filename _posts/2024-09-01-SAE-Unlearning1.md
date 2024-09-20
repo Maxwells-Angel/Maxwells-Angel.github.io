@@ -14,11 +14,11 @@ layout: single
 
 - I am confident that this approach works. SAE unlearning significantly reduces the likelihood a model predicts tokens related to a specified topic.
     
-- I am reasonably confident that the approach will generalize to other topics. There was nothing topic-specific about my approach but the choice of features. (vide: further discussion on this in Discussion)
+- I am reasonably confident that the approach will generalize to other topics. There was nothing topic-specific about my approach but the choice of features. (Vide: further discussion on this in Discussion)
     
 - I am uncertain about the practicality of the approach. 
     
-- My implementation of SAE unlearning burdened the model with a significant capability hit on predicting-the-next-token tasks. Moreover, the unlearned model also show decreased fluency and comprehensibility for prompt completion tasks. These capability decreases may discourage stakeholders from adopting this method. 
+- My implementation of SAE unlearning burdened the model with a significant capability hit on predicting-the-next-token tasks. Moreover, the unlearned model also shows decreased fluency and comprehensibility for prompt completion tasks. These capability decreases may discourage stakeholders from adopting this method. 
     
 - However, I strongly suspect that this can be mitigated. My approach was rough, as I was pretty focused on MVP, can-I-get-this-to-work style of experiments. I could imagine generating a more subtle technique with about one or two days of additional work. 
     
@@ -26,26 +26,26 @@ layout: single
     
 # Introduction 
 
-In the course of unsupervised training, models can acquire harmful capabilities or undesired knowledge. Unlearning is the process of selectively removing this information from a model. For example, if a model was exposed to copyrighted content during training, a company may want to limit mentions of it during inference. Similarly, engineers distributing a model to a wide audience may want to make sure that model does not assist bad actors by providing them advantageous information. 
+In the course of unsupervised training, models can acquire harmful capabilities or undesired knowledge. Unlearning is the process of selectively removing this information from a model. For example, if a model was exposed to copyrighted content during training, a company may want to limit mentions of it during inference. Similarly, engineers distributing a model to a wide audience may want to make sure that model does not assist bad actors by providing sensitive information. 
 
   
 
-Approximate unlearning methods, based on tuning output to indirectly change internals, have been shown to be vulnerable to adversarial attacks. SAE unlearning, on the other hand, deals directly with a model’s internal representations, and so might prove to be more robust and complete.  
+Approximate unlearning methods, based on tuning output to indirectly change internals, have been shown to be vulnerable to adversarial attacks. SAE unlearning, on the other hand, deals directly with a model’s internal representations and so might prove to be more robust and complete.  
   
 
 In the course of this research spurt, I tried to:
 
 1) Convince myself that SAE unlearning was a viable approach. That is, that it actually removes the specific information from the model. 
 
-2) Understand what kind of collateral effects unlearning has on the model’s performance 
+2) Understand what kind of collateral effects unlearning has on the model’s performance.
 
-3) Get an initial perspective on the robustness of SAE unlearning vs other methods 
+3) Get an initial perspective on the robustness of SAE unlearning vs other methods.
 
 # Investigation 
 
 ## Choosing a Model
 
-Following the work of Ronan Eldan and Mark Russinovich in [Who’s Harry Potter](https://arxiv.org/pdf/2310.02238), I decided to attempt to make a model forget facts about the Harry Potter (HP) series. To begin, I looked for the the smallest model available within sae_lens and transformer_lens libraries that could answer a reasonable amount of facts about Harry Potter. 
+Following the work of Ronan Eldan and Mark Russinovich in [Who’s Harry Potter](https://arxiv.org/pdf/2310.02238), I decided to attempt to make a model forget facts about the Harry Potter (HP) series. To begin, I looked for the the smallest model available within the sae_lens and transformer_lens libraries that could answer a reasonable amount of facts about Harry Potter. 
 
   
 
@@ -55,7 +55,7 @@ That model ended up being Gemma-2b. (See the Appendix for some of the questions 
 
 ### Identifying the Right Features 
 
-In order to delete the correct activations from Gemma, I had to know which SAE features were related to Harry Potter. Identifying these features by myself would have taken a long time. Thankfully, [Neuronpedia](https://www.neuronpedia.org/) allows you to do inference over millions of SAE features at once, leveraging the work of past SAE explorations. After passing  six to seven strings referencing Harry Potter through Neuronpedia, I had a short list of features to ablate.  
+In order to delete the correct activations from Gemma, I had to know which SAE features were related to Harry Potter. Identifying these features by myself would likely have taken a long time. Thankfully, [Neuronpedia](https://www.neuronpedia.org/) allows you to do inference over millions of SAE features at once, leveraging the work of past SAE explorations. After passing  six to seven strings referencing Harry Potter through Neuronpedia, I had a short list of features to ablate.  
 
   
 
@@ -84,10 +84,8 @@ I took thirty-one Harry Potter questions (drawing very heavily from the question
 4. Prompted Model - This model was prompted with the system prompt: "You have no knowledge of Harry Potter. Do not mention Harry Potter or anything related to the series. I repeat DO NOT mention Harry Potter or anything related to the series.\n" Preceding every Harry Potter question. 
     
 
-1. Note: I included the prompted model as a “naive unlearning baseline”. Findings from the [Eight Methods To Investigate Robust Unlearning in LLMs](https://arxiv.org/pdf/2402.16835) suggested that this unlearning baseline could achieve comparable performance with the fine-tuning model in some contexts. 
+I included the prompted model as a “naive unlearning baseline”. Findings from the [Eight Methods To Investigate Robust Unlearning in LLMs](https://arxiv.org/pdf/2402.16835) suggested that this unlearning baseline could achieve comparable performance with the fine-tuning model in some contexts. 
     
-
-  
 
 Each completion was kept to a maximum of 10 tokens. Completions were generated by iteratively sampling the highest probability token. 
 
@@ -116,11 +114,11 @@ Table 1: Sample of Harry Potter prompt completion by four different variations o
 
   
 
-The table clearly shows that the SAE unlearning approach removes mentions of Harry Potter from completions that previously contained them. Notably, completions from the SAE reconstruction model often still contain harry potter references,which makes me feel more confident that the ablation step is the necessary step for removing Harry Potter knowledge, separate from any changes or degradation caused by SAE reconstruction of residual stream activations. 
+The table clearly shows that the SAE unlearning approach removes mentions of Harry Potter from completions that previously contained them. Notably, many of the *SAE reconstruction model* completions retained their Harry Potter references. This makes me feel more confident that the feature ablation is the necessary step for removing Harry Potter knowledge, separate from any changes caused by SAE reconstruction of residual stream activations. 
 
   
 
-To further summarize the effect of unlearning, I manually inspected the output for all thirty-one HP prompts and tallied the number of “correct” answers and answers referencing Harry Potter for each model variant. Answers were considered “correct” if they contained the expected, factually accurate token anywhere within the model’s completion. Any completion that contained one or more references to HP was counted as one reference. 
+To further summarize the effect of unlearning, I manually inspected the output for all thirty-one HP prompts and tallied both the number of “correct” answers and the number of answers referencing Harry Potter for each model variant. Answers were considered “correct” if they contained the expected, factually accurate token anywhere within the model’s completion. Any completion that contained one or more references to HP was counted as one reference. 
 
   
 
@@ -140,7 +138,7 @@ The above is good supporting evidence that the approach is actually deleting inf
 
   
 
-That said, there are lots of ways to be wrong, and only one way to be right. One could imagine, for example, a model that scores very well on the above two metrics by being initialized with random weights. Ideally, the differences we see between the unlearn and the Baseline/SAE Reconstruction model are selective. We should only see differences between their predictions when the knowledge target is involved. 
+That said, there are lots of ways to be wrong, and only one way to be right. One could imagine, for example, a model that scores very well on the above two metrics by being initialized with random weights. Ideally, the differences we see between the Unlearn and the Baseline/SAE Reconstruction model are selective. We should only see differences between their predictions when the knowledge target is involved. 
 
   
 
@@ -173,37 +171,37 @@ Table 2: Sample of Generic prompt completions by four different variations of Ge
 
   
 
-As expected, in cases where the the question does not include references Harry Potter, the completions from the Unlearn and Sae Reconstruction models are identical. The unlearn model approach is sufficiently selective. 
+As expected, in cases where the the question does not include references to Harry Potter, the completions from the Unlearn and Sae Reconstruction models are identical. This supports the conclusion that our unlearning approach is selective. 
 
   
 
-This selectivity can also be seen by looking at logit differences between the Unlearn model and SAE Reconstruction model.  I took a look at how token probabilities were changing between the SAE reconstruction and the Unlearn model over the set of Harry Potter prompts.
+Selectivity can also be seen by looking at logit differences between the Unlearn model and SAE Reconstruction model. I took a look at how token probabilities were changing between the SAE reconstruction and the Unlearn model over the set of Harry Potter prompts.
 
 ![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXdcCzccqp-5BuhQCpzLJYeqJyu9r-pWHYGZBWApQHel6NpJ6jMUvS3P5N4wTXfV0pWVGdk21Zdwf0E3vZpGwUKHhcvFxzHFGApDee_zysOk_UVmVBo-3rlOlWlwqIg9Iih3wGkPmLqtGkwmUMN7tpdVpmzr?key=0ZleLYHTXITjVhfdnnzhKQ)
 
-Figure 3: 35 Tokens with the biggest average decrease in predicted probability between SAE reconstruction Model and the Unlearn model over thirty-one HP prompts. 
+Figure 3: The 35 tokens with the biggest average decrease in predicted probability between SAE reconstruction Model and the Unlearn model over thirty-one HP prompts. 
 
   
 
-The above shows the tokens with largest average decrease in predicted probability between the SAE reconstruction model and the Unlean model. These are the tokens that the unlearn approach are specifically masking. About ⅓ of these tokens are directly related to Harry Potter, which supports the idea that we’re doing selective unlearning. That said, the majority of the tokens have either no obvious or only a slight connection to Harry Potter, such as the token “Â”. There are clear limits to this analysis. These un-related tokens may serve as hints to the kind of collateral unlearning we can expect to see. 
+The above shows the tokens with largest average decrease in predicted probability between the SAE reconstruction model and the Unlean model. These are the tokens that the unlearn approach are specifically masking. About ⅓ of these tokens are directly related to Harry Potter, which supports the idea that we’re doing selective unlearning. That said, the majority of the tokens have either no obvious or only a slight connection to Harry Potter, such as the token “Â”. These un-related tokens may serve as hints to the kind of collateral unlearning we can expect to see from this approach. 
 
 #### Limitations 
 
-Obviously, this was a small dataset of Harry Potter questions. I would feel more confident about these conclusions if I had tested on ~10x more questions and saw similar results. Still, given the multiple kinds of analysis here, I am reasonably confident that I understand what’s going on.  
+There are clear limits to this analysis. Obviously, this was a small dataset of Harry Potter questions. I would feel more confident about these conclusions if I had tested on ~10x more questions and saw similar results. Still, given the multiple kinds of analysis here, I am reasonably confident that I understand what’s going on.  
 
   
 
-Another caveat to note here: the probability decrease is pretty specific to the prompts actually being shown. You can’t have a big decrease between the SAE and the unlearn model unless the SAE model rates it high in the first place. It would be interesting to test this over a wider Harry Potter question dataset so that the answers are more generalizable. 
+Another caveat to note: the probability decrease is pretty specific to the particular set of prompts. You can’t have a big decrease between the SAE and the unlearn model unless the SAE model rates it high in the first place. It would be interesting to test this over a wider Harry Potter question dataset so that the answers are more generalizable. 
 
 #### General Capability 
 
   
 
-I was curious about the effect that unlearning would have on the model’s general competency. Looking back at the generic completions from each model, You can see clear degradation in the accuracy, comphrensibility and fluency in the SAE and Unlearn models. Previously correct answers become wrong or nonsensical. Therefore, I guessed that I would see significantly degraded performance for the Unlearn and SAE models on wider datasets. This prediction was borne out.
+I was curious about the effect that unlearning would have on the model’s general competency. Looking back at the generic completions, the SAE and Unlearn models show clear degradation in the accuracy, comphrensibility, and fluency. In many cases, previously correct answers become wrong or nonsensical. Thus, I guessed that the Unlearn and SAE models would show significantly degraded performance on a wider dataset. This prediction was borne out.
 
   
 
-To quantify this analysis, I tested the base model, the SAE reconstruction model, and the Unlearn model on a subset of the pile. The subset included over three thousand strings.
+To quantify this analysis, I tested the base model, the SAE reconstruction model, and the Unlearn model on a subset of The Pile, an open source language dataset. The subset I chose included over three thousand strings.
 
 ![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXeOgJOBeHYIewBQsKp72yDQbxrhoYo8g8D9uHlH-ialkevO3pK3aAxioDI7VGRXfFc77q0S4JFvwhT_WiHOp2OXG33Paq63y6Q7i1sOb1_8Xmv-mQ0huk6iNFmV_aM_UpEpz1kVeU080OoerMjjXCYBFheD?key=0ZleLYHTXITjVhfdnnzhKQ)
 
@@ -211,15 +209,15 @@ Figure 4: Cross-entropy loss on 10% of the Pile. My SAE unlearning approach seem
 
   
 
-Both the Unlearn and the SAE Reconstruction model have double the loss of the baseline model. This is a very significant performance hit.
+The Unlearn and the SAE Reconstruction model had double the loss of the baseline model. This is a very significant performance hit.
 
 ## Assessing Unlearning Robustness 
 
-In eight methods to evaluate robust unlearning in LLMs, researchers found that higher-than-baseline amounts of knowledge could reliably be extracted from the fine-tuned model. For example, though the fine-tuned model performed better on their measure of unlearning, it performed on par with the baseline model on downstream Q&A tasks. 
+In [Eight Methods To Investigate Robust Unlearning in LLMs](https://arxiv.org/pdf/2402.16835), researchers found that higher-than-baseline amounts of knowledge could reliably be extracted from the fine-tuned model. For example, though the fine-tuned model performed better on their measure of unlearning, it performed on par with the baseline model on downstream Q&A tasks. 
 
   
 
-To assess the robustness of my own unlearning approached, I tested the baseline model, the SAE recon model, and the Unlearn model on sixty-seven binary Harry Potter Trivia questions. I generated these questions by sending the following prompt to Claude Sonnet: 
+To assess the robustness of my own unlearning approach, I tested the baseline model, the SAE reconstruction model, and the Unlearn model on sixty-seven binary Harry Potter Trivia questions. I generated these questions by sending the following prompt to Claude Sonnet: 
 
 
 ```
@@ -277,15 +275,14 @@ Figure 5: Baseline accuracy: 68.6%, Unlearn model accuracy: 46.2%, SAE model acc
 
   
 
-I was shocked to see that the Unlearn model had the exact same accuracy as the SAE model, so I checked the the predictions of each model and found that they were both naively predicting “ A” for every question. Unfortunately, that meant I can’t infer anything about the robustness of unlearning from their performance. 
+I was shocked to see that the Unlearn model had the exact same accuracy as the SAE model, so I checked the the predictions of each model and found that they were both naively predicting “ A” for every question. Unfortunately, that meant I couldn’t infer anything about the robustness of unlearning from their performance. 
 
   
 
-It seems like the degradation of the SAE reconstruction damages the model’s capabilities to the point where it can’t coherently answer Q&A style questions. Alternatively, the questions may simply be too difficult. Claude’s often composed questions with two plausible harry potter answers, rather than one unambigously relevant harry potter answer. That’s good for human trivia, but it might be too tough for Gemma, considering the base model’s capabilities. In my initial exploration, I saw that even the baseline model had trouble correctly completing facts about Harry Potter occasionally. Lowering the difficulty may make it easier to see the gradations of knowledge decay. 
+What happened here? My first guess is that the degradation from the SAE reconstruction damaged the model’s capabilities to the point where it can’t coherently answer Q&A style questions. Alternatively, the questions may have simply been too difficult for the model in general. Claude’s often composed questions with two plausible Harry Potter-related answers, rather than one unambigously relevant Harry Potter answer and one clear wrong answer. That’s good for human trivia, but it might be too tough for Gemma, considering the base model’s capabilities. In my initial exploration, I saw that even the baseline model had trouble correctly completing facts about Harry Potter occasionally. Lowering the difficulty may make it easier to parse gradations of knowledge decay. 
 
   
-
-Similarly, a simpler tasks like “choose the term related to Harry Potter A.{term} B.{term}” might give us the data we want while being easier for the model to handle.
+A simpler tasks like “choose the term related to Harry Potter A.{term} B.{term}” might give us the data we want while being easier for the model to handle.
 
 # Discussion 
 
@@ -309,7 +306,7 @@ I note, for example, that my current two feature ablation did not completely scr
 
   
 
-I’m also curious to see how does this method generalizes to other, perhaps more fundamental topics. The target knowledge set—facts about Harry Potter—seems particularly specialized and unentangled with other facts about the world. Intuitively, it feels this kind of information from a model is easier to remove than say, knowledge about the existence of Africa, or Roman Civilization. Concepts like that have a tremendous amount of related concepts, which might make it significantly harder to isolate the correct features. To sufficiently delete Africa, you may have gather all the features that activate for Africa, but also all the features of each country on the continent, and then all the world leaders for each country. It feels like a lot of nodes to cover, and I’m not confident that a few “Africa” neurons will encompass it. Because of this and similar concerns, I feel that strong mechanistic interpretability groundwork will go a long way to making this approach effective and usable in real-life situations. 
+I’m also curious to see how this method generalizes to other--perhaps more fundamental--topics. The target knowledge set—facts about Harry Potter—seems particularly specialized and unentangled with other facts about the world. Intuitively, it feels this kind of information from a model is easier to remove than say, knowledge about the existence of Africa or knowledge about the Roman empire. Concepts like that have a tremendous amount of related concepts and subconcepts, which might make it significantly harder to isolate the correct features. To sufficiently delete Africa, you may have to gather all the features that activate for Africa, but also all the features of each country on the continent, and then all the world leaders for each country. It feels like a lot of nodes to cover, and I’m not confident that a few “Africa” neurons will encompass it. Because of this and similar concerns, I feel that strong mechanistic interpretability groundwork will go a long way to making this approach effective and usable in real-life situations. 
 
 ## Subtler Ablations 
 
@@ -321,7 +318,7 @@ My thinking is that we can isolate the change we’re making to the model’s in
 
 ## Different Robustness Tests 
 
-There were multiple additional robustness tests suggested in the Eight Methods paper. In my further research, I will first fix my downstream Q&A task by making the questions simpler, and then I will work on testing in-context learning for the model.
+There were multiple additional robustness tests suggested in the [Eight Methods To Investigate Robust Unlearning in LLMs](https://arxiv.org/pdf/2402.16835) paper. In my further research, I will first make my original downstream Q&A task simpler, then experiment with other robustness tests such as in-context learning.
 
 ## Work with Bigger Models
 
