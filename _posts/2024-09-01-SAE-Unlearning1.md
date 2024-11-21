@@ -196,7 +196,7 @@ Another caveat to note here: I expect these probability decreases to be very spe
 
   
 I was curious about the effect that unlearning would have on the model’s general competency. Looking back at the generic completions, the SAE and Unlearn models show clear degradation in the accuracy, comprehensibility, and fluency. In many cases, previously correct answers become wrong or nonsensical. Thus, I predicted that the Unlearn and SAE models would show similarly degraded performance on a wider dataset. This prediction was borne out.
-[Eight Methods To Investigate Robust Unlearning in LLMs](https://arxiv.org/pdf/2402.16835e
+[Eight Methods To Investigate Robust Unlearning in LLMs](https://arxiv.org/pdf/2402.16835)
   
 
 I tested the base model, the SAE reconstruction model, and the Unlearn model on a subset of The Pile, an open source language dataset. The subset I chose included over three thousand strings.
