@@ -5,11 +5,12 @@ tags:
 - coding/projects
 permalink: /unlearning1
 title: "Sparse Autoencoders for Improving Unlearning in Large Language Models"
-layout: single
+layout: posts
 ---
-*A.K.A: Smallish Large-Language Models: What Do They Know? Can They Un-Know Things?? Let’s Find Out.* 
+###### *A.K.A: Smallish Large-Language Models: What Do They Know? Can They Un-Know Things?? Let’s Find Out.* 
 
-[Colab Notebook](https://colab.research.google.com/drive/1U-qSau6D5yqEhnf8kjBy5DtugULPATFA?usp=sharing) 
+###### [Colab Notebook](https://colab.research.google.com/drive/1U-qSau6D5yqEhnf8kjBy5DtugULPATFA?usp=sharing) 
+
 # Key Takeaways
 
 - I am confident that this approach works. SAE unlearning significantly reduces the likelihood a model predicts tokens related to a specified topic.

@@ -86,7 +86,7 @@
 
   </head>
 
-  <body class="layout--single" dir="ltr">
+  <body class="layout--posts" dir="ltr">
     <nav class="skip-links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
@@ -133,8 +133,6 @@
 
     <div class="initial-content">
       
-
-
 
 
 
@@ -264,55 +262,14 @@
 
 
 
-  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Sparse Autoencoders for Improving Unlearning in Large Language Models">
-    <meta itemprop="description" content="A.K.A: Smallish Large-Language Models: What Do They Know? Can They Un-Know Things?? Let’s Find Out. ">
-    <meta itemprop="datePublished" content="2024-09-01T00:00:00-04:00">
+  <div class="archive">
     
-
-    <div class="page__inner-wrap">
-      
-        <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="http://localhost:4000/unlearning1" itemprop="url">Sparse Autoencoders for Improving Unlearning in Large Language Models
-</a>
-          </h1>
-          
-
-  <p class="page__meta">
+      <h1 id="page-title" class="page__title">Sparse Autoencoders for Improving Unlearning in Large Language Models</h1>
     
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2024-09-01T00:00:00-04:00">September 1, 2024</time>
-      </span>
-    
+    <h6 id="aka-smallish-large-language-models-what-do-they-know-can-they-un-know-things-lets-find-out"><em>A.K.A: Smallish Large-Language Models: What Do They Know? Can They Un-Know Things?? Let’s Find Out.</em> </h6>
 
-    <span class="page__meta-sep"></span>
+<h6 id="colab-notebook"><a href="https://colab.research.google.com/drive/1U-qSau6D5yqEhnf8kjBy5DtugULPATFA?usp=sharing">Colab Notebook</a> </h6>
 
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          20 minute read
-        
-      </span>
-    
-  </p>
-
-
-        </header>
-      
-
-      <section class="page__content" itemprop="text">
-        
-        <p><em>A.K.A: Smallish Large-Language Models: What Do They Know? Can They Un-Know Things?? Let’s Find Out.</em> </p>
-
-<p><a href="https://colab.research.google.com/drive/1U-qSau6D5yqEhnf8kjBy5DtugULPATFA?usp=sharing">Colab Notebook</a> </p>
 <h1 id="key-takeaways">Key Takeaways</h1>
 
 <ul>
@@ -633,8 +590,7 @@ So, I wrote up a small sample of generic prompts and tested them on all four mod
 
 <h4 id="general-capability">General Capability </h4>
 
-<p>I was curious about the effect that unlearning would have on the model’s general competency. Looking back at the generic completions, the SAE and Unlearn models show clear degradation in the accuracy, comprehensibility, and fluency. In many cases, previously correct answers become wrong or nonsensical. Thus, I predicted that the Unlearn and SAE models would show similarly degraded performance on a wider dataset. This prediction was borne out.
-[Eight Methods To Investigate Robust Unlearning in LLMs](https://arxiv.org/pdf/2402.16835e</p>
+<p>I was curious about the effect that unlearning would have on the model’s general competency. Looking back at the generic completions, the SAE and Unlearn models show clear degradation in the accuracy, comprehensibility, and fluency. In many cases, previously correct answers become wrong or nonsensical. Thus, I predicted that the Unlearn and SAE models would show similarly degraded performance on a wider dataset. This prediction was borne out.</p>
 
 <p>I tested the base model, the SAE reconstruction model, and the Unlearn model on a subset of The Pile, an open source language dataset. The subset I chose included over three thousand strings.</p>
 
@@ -837,80 +793,30 @@ Please don't repeat any triva questions you have given before."""
 
 <hr />
 
-        
-      </section>
 
-      <footer class="page__meta">
-        
-        
+<ul class="taxonomy__index">
   
-
-
   
-
-  <p class="page__taxonomy">
-    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
-    <span itemprop="keywords">
-    
-      <a href="/tags/#ai" class="page__taxonomy-item p-category" rel="tag">AI</a><span class="sep">, </span>
-    
-      <a href="/tags/#coding" class="page__taxonomy-item p-category" rel="tag">coding</a><span class="sep">, </span>
-    
-      <a href="/tags/#coding-projects" class="page__taxonomy-item p-category" rel="tag">coding/projects</a>
-    
-    </span>
-  </p>
+    <li>
+      <a href="#2024">
+        <strong>2024</strong> <span class="taxonomy__count">2</span>
+      </a>
+    </li>
+  
+</ul>
 
 
 
 
-        
-
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-09-01T00:00:00-04:00">September 1, 2024</time></p>
-
-      </footer>
-
-      <section class="page__share">
-  <h4 class="page__share-title">Share on</h4>
-
-  <a href="https://twitter.com/intent/tweet?text=Sparse+Autoencoders+for+Improving+Unlearning+in+Large+Language+Models%20http%3A%2F%2Flocalhost%3A4000%2Funlearning1" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
-
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Funlearning1" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
-
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/unlearning1" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
-</section>
-
-
+  <section id="2024" class="taxonomy__section">
+    <h2 class="archive__subtitle">2024</h2>
+    <div class="entries-list">
       
-  <nav class="pagination">
-    
-      <a href="#" class="pagination--pager disabled">Previous</a>
-    
-    
-      <a href="/errors" class="pagination--pager" title="Execution Failures are Still Failures (Calibrate Surprise by Making Weird Excuses)
-">Next</a>
-    
-  </nav>
-
-    </div>
-
-    
-  </article>
-
-  
-  
-    
-<div class="page__related">
-  
-  <h2 class="page__related-title">You may also enjoy</h2>
-  <div class="grid__wrapper">
-    
-      
-      
+        
 
 
 
-<div class="grid__item">
+<div class="list__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
@@ -925,7 +831,7 @@ Please don't repeat any triva questions you have given before."""
     
       
       <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
         
         <time datetime="2024-10-08T00:00:00-04:00">October 8, 2024</time>
       </span>
@@ -938,7 +844,7 @@ Please don't repeat any triva questions you have given before."""
       
 
       <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        <i class="far fa-clock" aria-hidden="true"></i>
         
           5 minute read
         
@@ -955,12 +861,61 @@ Please don't repeat any triva questions you have given before."""
   </article>
 </div>
 
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
-  </div>
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/unlearning1" rel="permalink">Sparse Autoencoders for Improving Unlearning in Large Language Models
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-09-01T00:00:00-04:00">September 1, 2024</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          20 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">A.K.A: Smallish Large-Language Models: What Do They Know? Can They Un-Know Things?? Let’s Find Out. 
+
+</p>
+  </article>
 </div>
 
-  
-  
+      
+    </div>
+    <a href="#page-title" class="back-to-top">Back to top &uarr;</a>
+  </section>
+
+
+  </div>
 </div>
 
       

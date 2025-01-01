@@ -3,8 +3,12 @@
 search: false
 ---
 
-
-
+@font-face {
+    font-family: 'MONARCHIA';
+    src: url('../fonts/MONARCHIA.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
 
 @charset "utf-8";
 
@@ -12,3 +16,29 @@ search: false
 @import "minimal-mistakes"; // main partials
 
 /* Put custom CSS below */
+
+$dropcap: ".archive > p:first-of-type::first-letter";
+
+.layout--posts {
+    #{$dropcap} {
+        font-family: "MONARCHIA", serif;
+        font-size: 8rem;
+        float: left;
+        line-height: 1;
+        margin-right: 0.05em;
+    }
+    #{$dropcap}:before,
+    #{$dropcap}:after {
+      content: "";
+      display: block;
+    }
+    #{$dropcap}:before {
+      margin-bottom: -0.175em;
+    }
+    #{$dropcap}:after {
+      margin-top: -0.05em;
+  }
+}
+
+
+
