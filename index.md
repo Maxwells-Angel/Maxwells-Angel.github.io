@@ -8,7 +8,6 @@ title: "Hello, my name is Kelechi Nwankwoala"
 
 I'm a cognitive market-researcher turned AI researcher/engineer. 
 
-I just finished my summer batch at the [Recurse Center](https://www.recurse.com/), a self-directed coding retreat, 
-where I’ve been focusing on deep learning and mechanistic interpretability.
+In the summer of 2024, I completed a 3-month batch at the [Recurse Center](https://www.recurse.com/), a self-directed coding retreat, 
+where I focused on developing research-level AI expertise. During my first 8 weeks at Recurse, I completed ARENA, an intensive program on AI fundamentals and interpretability methods. This enabled me to conduct original research investigating how Sparse AutoEncoders (SAEs) can selectively remove information from large language models—addressing a critical AI safety challenge. After Recurse, I was selected for Neel Nanda's competitive MATS training phase, where I worked on interpreting mechanisms of refusal in LLMs. I also spent some of my retreat working on a desktop app to visualize personal time data and fine-tuning an LLM to sound like me. 
 
-Outside of programming, I tend towards hobby maximalism. I'm an ardent fan of almost anything competitive and adrenaline-inducing, (running, cycling, jiu-jitsu, surfing, skiing), arts and crafts related (sewing, drawing, embroidery, writing), and traditionally nerdy or geeky (DnD, chess, boardgames, bird-watching). Generally, if it’s novel, weird, strange, and/or cool, I am a fan. 
