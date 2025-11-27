@@ -19,7 +19,7 @@ minimal_mistakes_skin    : "contrast" # #"default" "air", "aqua", "contrast", "d
 locale                   : "en-US"
 rtl                      : # true, false (default) # turns direction of the page into right to left for RTL languages
 title_separator          : "-"
-subtitle                 : "Ars, Humilitas, Ubertas, et Efficiens" # site tagline that appears below site title in masthead
+subtitle                 : "Colere et Contribue" # site tagline that appears below site title in masthead
 name                     : "Kelechi Nwankwoala"
 description: >- # this means to ignore newlines until "baseurl:"
   Projects & musings of Kelechi Nwankwoala "
@@ -39,7 +39,7 @@ comments:
   facebook:
     # https://developers.facebook.com/docs/plugins/comments
     appid                :
-    num_posts            : # 5 (default)
+    num_posts            : 5 # 5 (default)
     colorscheme          : # "light" (default), "dark"
   utterances:
     theme                : # "github-light" (default), "github-dark"
