@@ -9,6 +9,14 @@
 <lastmod>2024-10-08T00:00:00-04:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/quadball</loc>
+<lastmod>2025-11-22T00:00:00-05:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/posts/2025-11-26-Test%20Blog%20Post/</loc>
+<lastmod>2025-11-26T00:00:00-05:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/unlearning1</loc>
 </url>
 <url>
@@ -16,6 +24,9 @@
 </url>
 <url>
 <loc>http://localhost:4000/quadball</loc>
+</url>
+<url>
+<loc>http://localhost:4000/_posts/2025-11-26-Test%20Blog%20Post/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/posts/</loc>

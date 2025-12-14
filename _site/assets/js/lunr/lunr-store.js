@@ -10,4 +10,16 @@ var store = [{
         "tags": ["principles","productivity"],
         "url": "/errors",
         "teaser": null
+      },{
+        "title": "My Favorite Made Up Game",
+        "excerpt":"If you are reading this sometime between March and May, know that somewhere in New England skinny prep school children aged 13-19 are running over concrete, risking their fleshy knees and ripping through sneakers, to bounce stolen volley balls over a wooden plank in pursuit of glory. I have been...","categories": [],
+        "tags": [],
+        "url": "/quadball",
+        "teaser": null
+      },{
+        "title": "Test blog post",
+        "excerpt":" ","categories": [],
+        "tags": [],
+        "url": "/posts/2025-11-26-Test%20Blog%20Post/",
+        "teaser": null
       }]
