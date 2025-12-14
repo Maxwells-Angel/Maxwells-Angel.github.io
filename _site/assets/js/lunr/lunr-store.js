@@ -17,9 +17,9 @@ var store = [{
         "url": "/quadball",
         "teaser": null
       },{
-        "title": "Test blog post",
-        "excerpt":" ","categories": [],
-        "tags": [],
-        "url": "/posts/2025-11-26-Test%20Blog%20Post/",
+        "title": "Not a Lot, Just Forever",
+        "excerpt":"Like the rock bears the weather/not a lot, just forever. — Adrienne Lenker L-sit I practice for one minute every day for a month. Suddenly I can do an L-sit. Achilles I watch the gap cut in half, then in half again, then in half again. Still, there is a...","categories": [],
+        "tags": ["philosophy"],
+        "url": "/justforever",
         "teaser": null
       }]
