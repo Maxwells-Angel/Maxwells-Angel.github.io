@@ -13,13 +13,13 @@ var store = [{
       },{
         "title": "My Favorite Made Up Game",
         "excerpt":"If you are reading this sometime between March and May, know that somewhere in New England skinny prep school children aged 13-19 are running over concrete, risking their fleshy knees and ripping through sneakers, to bounce stolen volley balls over a wooden plank in pursuit of glory. I have been...","categories": [],
-        "tags": [],
+        "tags": ["essay"],
         "url": "/quadball",
         "teaser": null
       },{
         "title": "Not a Lot, Just Forever",
         "excerpt":"Like the rock bears the weather/not a lot, just forever. — Adrienne Lenker L-sit I practice for one minute every day for a month. Suddenly I can do an L-sit. Achilles I watch the gap cut in half, then in half again, then in half again. Still, there is a...","categories": [],
-        "tags": ["philosophy"],
+        "tags": ["philosophy","fiction"],
         "url": "/justforever",
         "teaser": null
       }]

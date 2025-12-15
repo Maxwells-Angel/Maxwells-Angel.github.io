@@ -3,6 +3,7 @@ tags:
 - AI
 - coding
 - coding/projects
+dropcaps: on
 permalink: /unlearning1
 title: "Sparse Autoencoders for Improving Unlearning in Large Language Models"
 layout: posts
