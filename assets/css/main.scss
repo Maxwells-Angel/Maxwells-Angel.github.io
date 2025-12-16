@@ -19,7 +19,7 @@ search: false
 
 $dropcap: ".archive > p:first-of-type::first-letter";
 
-.layout--posts {
+.layout--posts_dropcaps {
     #{$dropcap} {
         font-family: "MONARCHIA", serif;
         font-size: 8rem;
