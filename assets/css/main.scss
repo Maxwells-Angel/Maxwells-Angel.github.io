@@ -19,6 +19,14 @@ search: false
 
 $dropcap: ".archive > p:first-of-type::first-letter";
 
+.archive__item-title.no_toc > a{
+  color:red;
+}
+
+a{
+  color:red;
+}
+
 .layout--posts_dropcaps {
     #{$dropcap} {
         font-family: "MONARCHIA", serif;
