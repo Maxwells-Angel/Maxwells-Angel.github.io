@@ -22,4 +22,10 @@ var store = [{
         "tags": ["philosophy","fiction"],
         "url": "/justforever",
         "teaser": null
+      },{
+        "title": "Jo",
+        "excerpt":"Jo had an interesting sense of identity. Being a fraternal twin, she had seen what she could be, and so she didn’t think much of herself. Castor liked that about her, sometimes. He liked that her spine curved wrong because she’d spent her growing years hunched in the backseat of...","categories": [],
+        "tags": ["story/unfinished","fiction"],
+        "url": "/Jo",
+        "teaser": null
       }]
