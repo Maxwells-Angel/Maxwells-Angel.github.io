@@ -28,4 +28,10 @@ var store = [{
         "tags": ["story/unfinished","fiction"],
         "url": "/Jo",
         "teaser": null
+      },{
+        "title": "The Parable of the Seeker",
+        "excerpt":"At age twelve, Alex joined a monastery. At age twelve and two weeks, he quit, finding the monks insufficiently motivated, too preoccupied with the comforts of the body. Leaving behind their mountains, he wandered into the woods and found a quiet, moss-carpeted shack in the lowlands. He entered it intent...","categories": [],
+        "tags": ["story"],
+        "url": "/seeker",
+        "teaser": null
       }]
